@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="../stylesheets/admin.css">
+	<link rel="stylesheet" type="text/css" href="../iconfont/iconfont.css">
+	<script type="text/javascript" src="/js/jquery-1.11.1.js"></script>
+	<title>Document</title>
+</head>
+<body>
+	<header>
+		<img src="../images/shopex.png">
+	</header>
+	<main>
+		<div class="logo">
+			<img src="../images/ecshop-logo.png">
+		</div>
+		<form action="" method="post">
+		    <div class="username">
+				<input type="text" id="username" placeholder="用户名">
+				<i class="iconfont icon-xingmingyonghumingnicheng"></i>
+		    </div>
+		    <div class="pwd">		    	
+				<input type="password" id="pwd" placeholder="密码">
+				<i class="iconfont icon-mima"></i>
+		    </div>
+		    <div class="val">
+				<input type="text" placeholder="验证码">
+				<i class="iconfont icon-ecurityCode"></i>
+		    </div>
+			<button onclick="login()">登录</button>
+			<p>
+				<input type="checkbox"><label>保存登录信息</label>
+				<a class="fp" href="">忘记密码？</a>
+				<a href="">去店铺首页>></a>
+			</p>
+			<div class="pic"></div>
+		</form>
+	</main>
+</body>
+</html>
+<script>
+	function login(){
+		$ajax({
+			url:"/api/login",
+			type:"post",
+            data:{
+            	username:$("#username").val(),
+            	password:$("#pwd").val()
+            },
+            success:function(res){
+                console.log(res)
+            }
+		})
+	}
+</script>
