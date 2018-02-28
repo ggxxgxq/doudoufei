@@ -9,5 +9,5 @@ var User = new Schema({
 });
 
 // 创建model对象，与数据库中的文档（表）映射
-var Usermodel = mongoose.model('user',User);
+var Usermodel = mongoose.model('users',User);
 module.exports = Usermodel; 

@@ -8,7 +8,6 @@ a,u{text-decoration: none;}
 i,em{font-style: normal;}
 .clearfix::after{content:".";clear:both;display:block;height:0;overflow:hidden;visibility:hidden;}
 
-
 /* mainright */
 h1{
 	border-bottom: 1px solid #ccc;
@@ -64,7 +63,7 @@ h1>span:nth-child(2){
 	margin-top:2px; 
 	font-size: 13px;
 }
-.tab-front{
+ .tab-front{
 	background: #fefefe;
 	height: 39px;
 	line-height: 39px;
@@ -75,7 +74,11 @@ h1>span:nth-child(2){
 	font-weight: bold;
 	cursor: hand;
 	cursor: pointer;
-}
+} 
+/* .tab-front{
+	background: #fefefe;
+	font-weight: bold;
+} */
 .tab_back{
 	padding: 0 20px;
 	text-align: center;
@@ -108,9 +111,16 @@ h1>span:nth-child(2){
 }
 .tabbody input{
 	height: 21px;
+	outline: 0;
+	margin:5px 0;
 }
 .li_1 input{
 	width: 191px;
+}
+.li_1 a{
+	display: inline-block;
+	vertical-align: middle;
+	margin:0 2px;
 }
 .li_2 input{
 	width: 133px;
@@ -134,7 +144,7 @@ h1>span:nth-child(2){
 .li_3 .add input{
 	width:77px ;
 }
-.li_4 .exp input{
+.add_good{
 	padding: 2px 15px 2px;
 	margin: 2px 2px;
 	border: none;
@@ -159,8 +169,21 @@ h1>span:nth-child(2){
     width: 64px;
     height: 22px;
 }
-.li_9 a{
-
+.li_14,.li_17 input{
+   vertical-align: middle;
+}
+.li_15 input[type="text"]{
+   width: 80px;
+}
+.li_18 .sub{
+   padding-left:100px;
+}
+.img_pro input[type="text"]{
+   margin: 5px 0;
+    color: #666;
+}
+.img_pro img{
+	vertical-align: middle;
 }
 .tabbody table .msg{
 	width: 70%;
@@ -174,4 +197,14 @@ h1>span:nth-child(2){
 	margin-left: 1em;
 	font: 12px verdana;
 	color: #FF0000;
+}
+/* footer */
+#footer{
+	background: #f3f3f3;
+    border: 1px solid #ddd;
+    padding: 15px;
+    color: #9CACAF;
+    margin: 10px 0;
+    text-align: center;
+    font-size: 12px;
 }

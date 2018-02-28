@@ -159,6 +159,9 @@ header .nav ul li:first-child{
     color: #d7d7d7;
     background: #575757;
 }
+.manage ul li a{
+	color: #d7d7d7;
+}
 .manage ul li:hover{
 	background: #797979;
 	color: #fff;

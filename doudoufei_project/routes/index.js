@@ -7,31 +7,33 @@ var Usermodel = require("../model/Usermodel")
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
-router.get('/admin', function(req, res, next) {
-  res.render('admin',{});
+router.get('/login', function(req, res, next) {
+  res.render('login');
 });
 router.get('/main', function(req, res, next) {
-  res.render('main',{});
+  res.render('main');
 });
 router.get('/header', function(req, res, next) {
-  res.render('header',{});
+  res.render('header');
 });
 router.get('/mainleft', function(req, res, next) {
-  res.render('mainleft',{});
+  res.render('mainleft');
 });
 router.get('/maincenter', function(req, res, next) {
-  res.render('maincenter',{});
+  res.render('maincenter');
 });
-router.get('/mainright', function(req, res, next) {
-  res.render('mainright',{});
+router.get('/mainright-new', function(req, res, next) {
+  res.render('mainright-new');
+});
+router.get('/mainright-list', function(req, res, next) {
+  res.render('mainright-list');
 });
 router.get('/manage', function(req, res, next) {
-  res.render('manage',{});
+  res.render('manage');
 });
-router.post('/api/login',function(res,req){
+router.post('/api/login',function(req,res){
     var username = req.body.username;
     var pwd = req.body.pwd;
-
     var result={
     	status:1,
     	message:"登录成功"
