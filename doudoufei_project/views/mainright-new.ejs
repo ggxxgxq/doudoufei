@@ -39,13 +39,13 @@
 			</p>
 		</div>
 		<div class="tabbody">
-			<form c>
-				<table class="good_info" width="90%" align="center" cellspacing="0" border-collapse="collapse">
+			<form action="/api/add_goods" method="post" enctype="multipart/form-data" id="frm">
+				<table class="good_info" width="90%" align="center" cellspacing="0" border-collapse="collapse">		    		
 					<tr class="li_1">
 						<td class="label">商品名称:</td>
 						<td class="msg"> 
-							<input type="text">
-							<a href=""><img src="../images/color_selecter.gif"></a>
+							<input type="text" id="goods_name" name="goods_name">
+							<div href=""><img src="../images/color_selecter.gif"></div>
 							<select>
 								<option>字体样式</option>
 							</select>
@@ -58,7 +58,7 @@
 						商品货号:
 						</td>
 						<td>
-							<input type="text"><br>
+							<input type="text" id="goods_id" name="goods_id"><br>
 							如果您不输入商品货号，系统将自动生成一个货号。
 						</td>
 					</tr>
@@ -67,13 +67,23 @@
 						<td>
 						    <select>
 						    	<option>请选择...</option>
+						    	<option value="0">所有分类</option>
+				<option value="132">钻石</option>
+				<option value="190">衬衫</option>
+				<option value="193">&nbsp;&nbsp;&nbsp;&nbsp;短袖衬衫</option>
+				<option value="0">&nbsp;&nbsp;&nbsp;&nbsp;长袖衬衫</option>
+				<option value="160">外套</option>
+				<option value="162">&nbsp;&nbsp;&nbsp;&nbsp;卫衣</option>
+				<option value="167">&nbsp;&nbsp;&nbsp;&nbsp;棉服</option>
+				<option value="163">&nbsp;&nbsp;&nbsp;&nbsp;大衣</option>
+				<option value="168">&nbsp;&nbsp;&nbsp;&nbsp;皮夹克</option>
 						    </select>
-						    <a href="" class="add_pro">添加分类</a>
+						    <a class="add_pro">添加分类</a>
 						    <span class="add">
 						    	<input type="text">
 						    	<a href="" class="add_pro">确定</a>
 						    	<a href="" class="add_pro">分类管理</a>
-						    	<a href="" class="add_pro">> ></a>
+						    	<a  class="add_pro back">> ></a>
 						    </span>
 							<span class="require">*</span>
 						</td>
@@ -89,14 +99,25 @@
 						<td > 
 							<select>
 								<option>请选择</option>
+								<option>空间大师</option>
+								<option>溢彩年华</option>
+								<option>太平鸟</option>
+								<option>cachecache</option>
+								<option>七匹狼</option>
 							</select>
-							<a href="" class="add_pro">添加品牌</a>
+							<a  class="add_pro">添加品牌</a>
+							  <span class="add">
+						    	<input type="text">
+						    	<a href="" class="add_pro">确定</a>
+						    	<a href="" class="add_pro">分类管理</a>
+						    	<a class="add_pro back">> ></a>
+						    </span>
 						</td>
 					</tr>
 					<tr class="li_6">
 						<td class="label">本店售价:</td>
 						<td > 
-							<input type="text">
+							<input type="text" id="goods_price" name="goods_price">
 							<a href="" class="market">按市场价计算</a>
 							<span class="require">*</span>
 						</td>
@@ -134,7 +155,7 @@
 					<tr class="li_9">
 						<td class="label">市场售价:</td>
 						<td > 
-							<input type="text" value="0">
+							<input type="text" value="0" >
 							<a href="" class="market">取整数</a>
 						</td>
 					</tr>
@@ -199,7 +220,7 @@
 					<tr class="li_16">
 						<td class="label">上传商品图片:</td>
 						<td class="img_pro"> 
-						    <input type="file">
+						    <input type="file" id="goods_pic" name="goods_pic">
 							<img src="../images/no.gif"><br>
 							<input type="text" value="商品图片外部url">
 						</td>
@@ -217,10 +238,11 @@
 					<tr class="li_18">
 						<td class="label"></td>
 						<td class="sub"> 
-						   <input class="add_good" type="button" value="确定">
+						   <input id="add_goods" class="add_good" type="button" onclick="addGoods()" value="确定">
 						   <input class="add_good" type="button" value="重置">
 						</td>
 					</tr>
+				 
 				</table>
 			</form>
 		</div>
@@ -241,4 +263,29 @@
 		$(this).addClass('tab-front')
 		       .removeClass("tab_back")
 	})
+	$(".add_pro").click(function(){
+		$(this).next().css("display","inline-block")
+	})
+	$(".back").click(function(){
+		$(this).parent().css("display","none")
+	})
+	function addGoods(){
+        document.getElementById("frm").submit()
+	}
+	//js文件上传  兼容性差
+	/*function addGoods(){
+       var ajax= new XMLHttpRequest();
+       ajax.open("post","/api/add_goods");
+       ajax.onreadystatechange = function(res){
+           if(){
+
+           }
+       }
+       var form = new FormData();
+       form.append("goods_name",$("#goods_name").val())
+       form.append("goods_id",$("#goods_id").val())
+       form.append("goods_price",$("#goods_price").val())
+       form.append("goods_pic",document.getElementById("goods_pic").files[0])
+       ajax.send(form)
+	}*/
 </script>

@@ -117,7 +117,7 @@ h1>span:nth-child(2){
 .li_1 input{
 	width: 191px;
 }
-.li_1 a{
+.li_1 div{
 	display: inline-block;
 	vertical-align: middle;
 	margin:0 2px;
@@ -129,6 +129,7 @@ h1>span:nth-child(2){
 	width: 159px;
 }
 .add_pro{
+	color: #666;
 	margin: 0 5px;
 	padding: 1px 5px;
 	border: 1px solid #91C4D0;
@@ -138,10 +139,10 @@ h1>span:nth-child(2){
 	text-decoration: none;
 	font-weight: 400;
 }
-.li_3 .add{
+.add{
 	 display: none; 
 }
-.li_3 .add input{
+.add input{
 	width:77px ;
 }
 .add_good{
