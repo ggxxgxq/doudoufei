@@ -1,0 +1,177 @@
+ *{margin:0;padding:0;} 
+ul,ol,li{list-style:none;}
+h1,h2,h3,h4,h5,h6{font-weight: 100;font-size: 16px;}
+/* p{margin:0;padding:0;} */
+b,strong{font-weight:100;}
+a,u{text-decoration: none;}
+/* img{display: block;border:0} */
+i,em{font-style: normal;}
+.clearfix::after{content:".";clear:both;display:block;height:0;overflow:hidden;visibility:hidden;}
+
+
+/* mainright */
+h1{
+	border-bottom: 1px solid #ccc;
+	color: #333;
+	font-weight: normal;
+	padding: 7px 10px;
+	margin: 0 0 10px 0;
+	overflow: hidden;
+}
+h1>span{
+	font-size: 17px;
+}
+h1>span:nth-child(2){
+	color: #4c4c4c;
+}
+.shop_list{
+	float: right;
+	height: 26px;
+	line-height: 26px;
+	padding: 0 10px 0 23px;
+	background: #c43926 url(../images/icon_add02.gif) no-repeat 6px center;
+	border-radius: 3px;
+	color: #fff;
+	font-size: 13px;
+	font-weight: normal;
+	text-align: center;
+	cursor: pointer;
+}
+.shop_center a{
+	color: #333;
+}
+.help{
+	display: inline-block;
+	width:110px ;
+	height:26px ;
+	vertical-align: middle;
+	margin-left: 16px;
+}
+/* newshop */
+.new_shop{
+	background: #f3f3f3;
+	border: 1px solid #d7d7d7;
+	margin: 0 0 10px 0;
+	padding: 1px;
+}
+.tabbar{
+	margin-top: 0px;
+    background: #efefef;
+    padding-left: 10px;
+    height: 39px;
+}
+.tabbar p{
+	margin-top:2px; 
+	font-size: 13px;
+}
+.tab-front{
+	background: #fefefe;
+	height: 39px;
+	line-height: 39px;
+	display: block;
+	float: left;
+	padding: 0 20px;
+	text-align: center;
+	font-weight: bold;
+	cursor: hand;
+	cursor: pointer;
+}
+.tab_back{
+	padding: 0 20px;
+	text-align: center;
+	font-size: 13px;
+	float: left;
+	display: block;
+	float: left;
+	color: #787878;
+	line-height: 39px;
+	cursor: hand;
+	cursor: pointer;
+}
+.tabbody{
+	padding:10px;
+	background: #fefefe;
+    font-size: 12px;
+}
+.tabbody table{
+   margin: 0 auto;
+   color: #666;
+}
+.tabbody table .label{
+	text-align: right;
+	vertical-align: top;
+	font-weight: bold;
+	padding: 5px 1em;
+	color: #000;
+	width:30%;
+	line-height: 30px;
+}
+.tabbody input{
+	height: 21px;
+}
+.li_1 input{
+	width: 191px;
+}
+.li_2 input{
+	width: 133px;
+}
+.li_3 select{
+	width: 159px;
+}
+.add_pro{
+	margin: 0 5px;
+	padding: 1px 5px;
+	border: 1px solid #91C4D0;
+	border-right: 2px solid #278296;
+	border-bottom: 2px solid #278296;
+	background: #DDEEF2;
+	text-decoration: none;
+	font-weight: 400;
+}
+.li_3 .add{
+	 display: none; 
+}
+.li_3 .add input{
+	width:77px ;
+}
+.li_4 .exp input{
+	padding: 2px 15px 2px;
+	margin: 2px 2px;
+	border: none;
+	background: #ff3f3f;
+	color: #FFF;
+	cursor: pointer;
+	border-radius: 3px;
+}
+.li_5 select{
+	width: 107px;
+}
+.market{
+	margin-left: 5px;
+	margin-right: 17px;
+	padding: 4px 9px;
+	background: #dadada;
+	border: 1px solid #ccc;
+	border-radius: 2px;
+	color: #000;
+}
+.li_7 .user input{
+    width: 64px;
+    height: 22px;
+}
+.li_9 a{
+
+}
+.tabbody table .msg{
+	width: 70%;
+} 
+.good_info .label a{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.require{
+	margin-left: 1em;
+	font: 12px verdana;
+	color: #FF0000;
+}

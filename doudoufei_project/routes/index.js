@@ -10,12 +10,27 @@ router.get('/', function(req, res, next) {
 router.get('/admin', function(req, res, next) {
   res.render('admin',{});
 });
+router.get('/main', function(req, res, next) {
+  res.render('main',{});
+});
+router.get('/header', function(req, res, next) {
+  res.render('header',{});
+});
+router.get('/mainleft', function(req, res, next) {
+  res.render('mainleft',{});
+});
+router.get('/maincenter', function(req, res, next) {
+  res.render('maincenter',{});
+});
+router.get('/mainright', function(req, res, next) {
+  res.render('mainright',{});
+});
 router.get('/manage', function(req, res, next) {
   res.render('manage',{});
 });
 router.post('/api/login',function(res,req){
     var username = req.body.username;
-    var pwd = md5(req.body.pwd);
+    var pwd = req.body.pwd;
 
     var result={
     	status:1,

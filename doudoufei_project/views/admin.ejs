@@ -15,7 +15,8 @@
 		<div class="logo">
 			<img src="../images/ecshop-logo.png">
 		</div>
-		<form action="" method="post">
+		<!-- <form action="" method="post"> -->
+		<section>
 		    <div class="username">
 				<input type="text" id="username" placeholder="用户名">
 				<i class="iconfont icon-xingmingyonghumingnicheng"></i>
@@ -35,18 +36,19 @@
 				<a href="">去店铺首页>></a>
 			</p>
 			<div class="pic"></div>
-		</form>
+		<!-- </form> -->
+		</section>
 	</main>
 </body>
 </html>
 <script>
 	function login(){
-		$ajax({
+		$.ajax({
 			url:"/api/login",
 			type:"post",
             data:{
             	username:$("#username").val(),
-            	password:$("#pwd").val()
+            	pwd:$("#pwd").val()
             },
             success:function(res){
                 console.log(res)

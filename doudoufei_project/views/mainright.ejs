@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../stylesheets/mainright.css">
+	<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
+	<style type="text/css">
+	  body{
+		background: url(../images/body_bj.jpg);
+		min-width:773px;
+		padding:10px;
+		cursor: auto;
+      }
+	</style>
+</head>
+<body>
+	<h1>
+		<span class="shop_center">
+			<a href="">ECSHOP管理中心</a>
+		</span>
+		<span >-添加新商品</span>
+		<a href="" class="help" >
+			<img src="../images/jnsy.png">
+		</a>
+		<a href="" class="shop_list">+商品列表</a>
+	</h1>
+	<div class="new_shop">
+		<div class="tabbar">
+			<p class="tabbar_shop">
+				<span class="tab-front">通用信息</span>
+				<span class="tab_back">详细描述</span>
+				<span class="tab_back">其他信息</span>
+				<span class="tab_back">商品属性</span>
+				<span class="tab_back">商品相册</span>
+                <span class="tab_back">关联商品</span>
+				<span class="tab_back">配件</span>
+				<span class="tab_back">关联文章</span>
+			</p>
+		</div>
+		<div class="tabbody">
+			<form>
+				<table class="good_info" width="90%" align="center" cellspacing="0" border-collapse="collapse">
+					<tr class="li_1">
+						<td class="label">商品名称:</td>
+						<td class="msg"> 
+							<input type="text">
+							<a href=""><img src="../images/color_selecter.gif"></a>
+							<select>
+								<option>字体样式</option>
+							</select>
+							<span class="require">*</span>
+						</td>
+					</tr>
+					<tr class="li_2">
+						<td class="label">
+						<a href=""><img src="../images/notice.gif" width="16" height="16"></a>
+						商品货号:
+						</td>
+						<td>
+							<input type="text"><br>
+							如果您不输入商品货号，系统将自动生成一个货号。
+						</td>
+					</tr>
+					<tr class="li_3">
+					    <td class="label">商品分类:</td>
+						<td>
+						    <select>
+						    	<option>请选择...</option>
+						    </select>
+						    <a href="" class="add_pro">添加分类</a>
+						    <span class="add">
+						    	<input type="text">
+						    	<a href="" class="add_pro">确定</a>
+						    	<a href="" class="add_pro">分类管理</a>
+						    	<a href="" class="add_pro">> ></a>
+						    </span>
+							<span class="require">*</span>
+						</td>
+					</tr>
+					<tr class="li_4">
+						<td class="label">扩展分类:</td>
+						<td class="exp"> 
+							<input type="button" value="添加">
+						</td>
+					</tr>
+					<tr class="li_5">
+						<td class="label">商品品牌:</td>
+						<td > 
+							<select>
+								<option>请选择</option>
+							</select>
+							<a href="" class="add_pro">添加品牌</a>
+						</td>
+					</tr>
+					<tr class="li_6">
+						<td class="label">本店售价:</td>
+						<td > 
+							<input type="text">
+							<a href="" class="market">按市场价计算</a>
+							<span class="require">*</span>
+						</td>
+					</tr>
+					<tr class="li_7">
+						<td class="label">
+							<a href=""><img src="../images/notice.gif" width="16" height="16"></a>
+							会员价格:
+						</td>
+						<td class="user"> 
+							<label>注册用户</label>
+							<input type="text">
+							<label>代销用户</label>
+							<input type="text">
+							<label>vip</label>
+							<input type="text"><br>
+							购买该商品时赠送积分数，-1表示按商品价格赠送。
+					
+						</td>
+					</tr>
+					<tr class="li_8">
+						<td class="label">
+							<a href=""><img src="../images/notice.gif" width="16" height="16"></a>
+							商品优惠价格:
+						</td>
+						<td class="user"> 
+							<label>[+]优惠数量</label>
+							<input type="text">
+							<label>优惠价格</label>
+							<input type="text"><br>
+							购买数量达到优惠数量时享受的优惠价格
+					
+						</td>
+					</tr>
+					<tr class="li_9">
+						<td class="label">市场售价:</td>
+						<td > 
+							<input type="text">
+							<a href="" class="market">取整数</a>
+						</td>
+					</tr>
+					<tr class="li_10">
+						<td class="label">虚拟销量:</td>
+						<td > 
+							<input type="text">
+						</td>
+					</tr>
+					<tr class="li_11">
+						<td class="label">
+							<a href=""><img src="../images/notice.gif" width="16" height="16"></a>
+							赠送消费积分数:
+						</td>
+						<td > 
+							<input type="text"><br>
+							购买数量达到优惠数量时享受的优惠价格
+					
+						</td>
+					</tr>
+					<tr class="li_12">
+						<td class="label">
+							<a href=""><img src="../images/notice.gif" width="16" height="16"></a>
+							赠送等级分数:
+						</td>
+						<td > 
+							<input type="text"><br>
+							购买数量达到优惠数量时享受的优惠价格
+					
+						</td>
+					</tr>
+					<tr class="li_13">
+						<td class="label">
+							<a href=""><img src="../images/notice.gif" width="16" height="16"></a>
+							积分购买金额:
+						</td>
+						<td > 
+							<input type="text"><br>
+							购买数量达到优惠数量时享受的优惠价格
+					
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	$(".tabbar_shop span").click(function(){
+		/*alert("")*/
+		$(this).addClass('.tab-front')
+		       .siblings()
+		       .addClass('.tab_back')
+	})
+</script>

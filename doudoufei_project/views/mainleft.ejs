@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="../stylesheets/manage.css">
+	<script type="text/javascript" src='../js/jquery-1.11.1.js'></script>
+</head>
+<body>
+    <div class="menu">  	
+		<div class="tab_menu">
+			<h4>导航菜单</h4>
+		</div>
+		<div class="list_menu">
+			<li class="manage icon_1">
+				商品管理
+				<ul>
+					<li>商品列表</li>
+					<li>添加新商品</li>
+				</ul>
+			</li>
+			<li class="manage icon_2">
+				促销管理
+				<ul>
+					<li>商品列表</li>
+					<li>添加新商品</li>
+				</ul>
+			</li>
+			<li class="manage icon_3">
+				订单管理
+				<ul>
+					<li>商品列表</li>
+					<li>添加新商品</li>
+				</ul>
+			</li>
+			<li class="manage icon_4">
+				广告管理
+				<ul>
+					<li>商品列表</li>
+					<li>添加新商品</li>
+				</ul>
+			</li>
+			<li class="manage icon_5">
+				报表统计
+				<ul>
+					<li>商品列表</li>
+					<li>添加新商品</li>
+				</ul>
+			</li>
+			<li class="manage icon_6">
+				文章管理
+			</li>
+			<li class="manage icon_9">
+				会员管理
+			</li>
+			<li class="manage icon_10">
+				权限统计
+			</li>
+			<li class="manage icon_11">
+				系统管理
+			</li>
+			<li class="manage icon_1">
+				商品管理
+			</li>
+			<li class="manage icon_2">
+				促销管理
+			</li>
+			<li class="manage icon_3">
+				订单管理
+			</li>
+			<li class="manage icon_4">
+				广告管理
+			</li>
+			<li class="manage icon_5">
+				报表统计
+			</li>
+			<li class="manage icon_6">
+				文章管理
+			</li>
+			<li class="manage icon_9">
+				会员管理
+			</li>
+			<li class="manage icon_10">
+				权限统计
+			</li>
+		</div>
+    </div>
+</body>
+</html>
+<script type="text/javascript">
+	$(".manage").click(function(){
+		if($(this).children().css("display")=="none"){
+			$(this).css("background","#454545 url(../images/menu1_1.png) 9px 0 no-repeat");
+            $(this).children().css("display","block")
+		}else{
+            $(this).css("background","#575757 url(../images/menu_1.png) 9px 0 no-repeat");
+            $(this).children().css("display","none")
+		}
+	})
+</script>
