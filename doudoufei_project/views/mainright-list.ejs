@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" type="text/css" href="../stylesheets/list.css">
+	<script type="text/javascript" src="../js/jquery-1.11.1.js"></script>
 </head>
 <body>
 	<h1>
@@ -17,7 +18,7 @@
 		<a href="" class="shop_list">+商品列表</a>
 	</h1>
 	<div class="nav">
-		<form name="SearchForm">
+		<!-- <form name="SearchForm" action="/api/search_goods" method="post"> -->
 			<img src="../images/icon_search.gif">
 			<select name="category_id" class="category_id">
 				<option value="0">所有分类</option>
@@ -52,13 +53,13 @@
 				<option>下架</option>
 			</select>
 			<label>关键字</label>
-			<input type="text" name="keyword" size="15">
-			<input type="submit"class="button" value="搜索">
-		</form>
+			<input type="text" name="keyword" size="15" id="keyword">
+			<input type="submit" name="search" id="search" class="button" value="搜索" onclick="searchGoods()">
+		<!-- </form> -->
 	</div>
 	<div class="goods_list">
-		<table cellspacing="1" cellpadding="3" border="1" >
-			<tr>
+		<table cellspacing="1" cellpadding="3" border="1" class="shop_tab">
+			<tr class="fir_list">
 				<th>
 					<input type="checkbox">
 					<a href="">编号</a>
@@ -76,9 +77,9 @@
 				<th>虚拟销量</th>
 				<th>操作</th>
 			</tr>
-			<% for(var i=list.length-1;i>=0;i--){%>
-		    <tr>
-		    	<td>
+			<!-- <% for(var i=list.length-1;i>=0;i--){%>
+					    <tr>
+					    	<td>
 					<input type="checkbox"><%= list[i].goods_id %>
 				</td>
 				<td><%= list[i].goods_name %></td>
@@ -111,218 +112,8 @@
 					<a href=""><img src="../images/icon_copy.gif"></a>
 					<a href=""><img src="../images/icon_trash.gif"></a>
 				</td>
-		    </tr>		
-		    <% }%>
-			<tr>
-				<td>
-					<input type="checkbox">203
-				</td>
-				<td>衣服</td>
-				<td>ECS000203</td>
-				<td>0.00</td>
-				<td>
-					<img src="../images/yes.gif">
-				</td>
-				<td>
-					<img src="../images/no.gif">
-				</td>
-				<td>
-					<img src="../images/yes.gif">
-				</td>
-				<td>
-					<img src="../images/no.gif">
-				</td>
-				<td>
-					100
-				</td>
-				<td>
-					1
-				</td>
-				<td>
-					0
-				</td>
-				<td>
-					<a href=""><img src="../images/icon_view.gif"></a>
-					<a href=""><img src="../images/icon_edit.gif"></a>
-					<a href=""><img src="../images/icon_copy.gif"></a>
-					<a href=""><img src="../images/icon_trash.gif"></a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="checkbox">203
-				</td>
-				<td>衣服</td>
-				<td>ECS000203</td>
-				<td>0.00</td>
-				<td>
-					<img src="../images/yes.gif">
-				</td>
-				<td>
-					<img src="../images/no.gif">
-				</td>
-				<td>
-					<img src="../images/yes.gif">
-				</td>
-				<td>
-					<img src="../images/no.gif">
-				</td>
-				<td>
-					100
-				</td>
-				<td>
-					1
-				</td>
-				<td>
-					0
-				</td>
-				<td>
-					<a href=""><img src="../images/icon_view.gif"></a>
-					<a href=""><img src="../images/icon_edit.gif"></a>
-					<a href=""><img src="../images/icon_copy.gif"></a>
-					<a href=""><img src="../images/icon_trash.gif"></a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="checkbox">203
-				</td>
-				<td>衣服</td>
-				<td>ECS000203</td>
-				<td>0.00</td>
-				<td>
-					<img src="../images/yes.gif">
-				</td>
-				<td>
-					<img src="../images/no.gif">
-				</td>
-				<td>
-					<img src="../images/yes.gif">
-				</td>
-				<td>
-					<img src="../images/no.gif">
-				</td>
-				<td>
-					100
-				</td>
-				<td>
-					1
-				</td>
-				<td>
-					0
-				</td>
-				<td>
-					<a href=""><img src="../images/icon_view.gif"></a>
-					<a href=""><img src="../images/icon_edit.gif"></a>
-					<a href=""><img src="../images/icon_copy.gif"></a>
-					<a href=""><img src="../images/icon_trash.gif"></a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="checkbox">203
-				</td>
-				<td>衣服</td>
-				<td>ECS000203</td>
-				<td>0.00</td>
-				<td>
-					<img src="../images/yes.gif">
-				</td>
-				<td>
-					<img src="../images/no.gif">
-				</td>
-				<td>
-					<img src="../images/yes.gif">
-				</td>
-				<td>
-					<img src="../images/no.gif">
-				</td>
-				<td>
-					100
-				</td>
-				<td>
-					1
-				</td>
-				<td>
-					0
-				</td>
-				<td>
-					<a href=""><img src="../images/icon_view.gif"></a>
-					<a href=""><img src="../images/icon_edit.gif"></a>
-					<a href=""><img src="../images/icon_copy.gif"></a>
-					<a href=""><img src="../images/icon_trash.gif"></a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="checkbox">203
-				</td>
-				<td>衣服</td>
-				<td>ECS000203</td>
-				<td>0.00</td>
-				<td>
-					<img src="../images/yes.gif">
-				</td>
-				<td>
-					<img src="../images/no.gif">
-				</td>
-				<td>
-					<img src="../images/yes.gif">
-				</td>
-				<td>
-					<img src="../images/no.gif">
-				</td>
-				<td>
-					100
-				</td>
-				<td>
-					1
-				</td>
-				<td>
-					0
-				</td>
-				<td>
-					<a href=""><img src="../images/icon_view.gif"></a>
-					<a href=""><img src="../images/icon_edit.gif"></a>
-					<a href=""><img src="../images/icon_copy.gif"></a>
-					<a href=""><img src="../images/icon_trash.gif"></a>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<input type="checkbox">203
-				</td>
-				<td>衣服</td>
-				<td>ECS000203</td>
-				<td>0.00</td>
-				<td>
-					<img src="../images/yes.gif">
-				</td>
-				<td>
-					<img src="../images/no.gif">
-				</td>
-				<td>
-					<img src="../images/yes.gif">
-				</td>
-				<td>
-					<img src="../images/no.gif">
-				</td>
-				<td>
-					100
-				</td>
-				<td>
-					1
-				</td>
-				<td>
-					0
-				</td>
-				<td>
-					<a href=""><img src="../images/icon_view.gif"></a>
-					<a href=""><img src="../images/icon_edit.gif"></a>
-					<a href=""><img src="../images/icon_copy.gif"></a>
-					<a href=""><img src="../images/icon_trash.gif"></a>
-				</td>
-			</tr>
+					    </tr>		
+					    <% }%>  -->
 		</table>
 	</div>
 	<div id="footer">
@@ -333,3 +124,72 @@
 	</div>
 </body>
 </html>
+<script type="text/javascript">
+	function searchGoods(){
+		$.ajax({
+				url:"/api/search_goods",
+				type:"post",
+	            data:{
+	            	keyword:$("#keyword").val()
+	            },
+	            success:function(res){
+	                $(".shop_tab").append( tab(res))
+				    }
+	            
+			})
+	}
+
+
+	fend();
+	function fend(){
+        $.ajax({
+        	url:"/aaa",
+            type:"get",
+	        success:function(res){
+	        	$(".shop_tab").append( tab(res))
+	        }
+        })
+	}
+
+	function tab(res){
+		var str ="";
+	    for( var i=res.length-1;i>=0;i--){
+            str +='<tr><td><input type="checkbox" value="">' + res[i].goods_id +'</td><td><span class="good_name">' + res[i].goods_name + '</span></td><td><span>200</span></td><td><span>' + res[i].goods_price + '</span></td><td><img src="../images/no.gif"></td><td><img src="../images/yes.gif"></td><td><img src="../images/yes.gif"></td><td><img src="../images/yes.gif"></td><td><span>100</span></td><td><span>1</span></td><td><span>10</span></td><td><a href="#"><img src="../images/icon_view.gif"></a><a href="#"><img src="../images/icon_edit.gif"></a><a href="#"><img src="../images/icon_copy.gif"></a><a href="javascript:;" class="delete"><img src="../images/icon_trash.gif"  ></a></td></tr>'
+
+	}
+		return str;
+}
+//假删除
+  $(".delete").click(function(){
+	  	alert("")
+	  	$.ajax({
+	  		url:"/api/remove",
+	  		type:"post",
+	  		data:{
+	  		goods_name:	$(this).parent().parent().children().find(".goods_name").text()
+	  		},
+	        success:function(res){
+	            console.log("删除成功")
+	        }
+	  	})
+	  
+  })
+
+ 
+	/*$(".delete").click(function(){
+		aleret();
+		$.ajax({
+			url : "/dele",
+			type: "post",
+			data : {
+			      goods_name : $(this).parent().parent().children().eq(1).children().html()
+			},
+			success: function(res){
+					//console.log(res);
+				alert(res)
+		    }
+		})
+		history.go(0);
+	})
+*/
+</script>

@@ -3,6 +3,7 @@ var Schema = mongoose.Schema;
 
 // 创建文档的定义
 var Goods = new Schema({
+	sign        : Number,
     goods_name  : String,
     goods_id    : String,
     goods_price : String,

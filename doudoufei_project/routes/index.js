@@ -28,13 +28,40 @@ router.get('/mainright-new', function(req, res, next) {
   res.render('mainright-new');
 });
 router.get('/mainright-list', function(req, res, next) {
-  Goodsmodel.find({},function(err,docs){
+  Goodsmodel.find({sign:1},function(err,docs){
     res.render('mainright-list',{list:docs});
   })
 });
-router.get('/manage', function(req, res, next) {
+router.get('/aaa', function(req, res, next) {
+  Goodsmodel.find({sign:1},function(err,docs){
+    res.send(docs);
+  })
+});
+router.post('/api/search_goods', function(req, res, next) {
+  var keyword = req.body.keyword;
+ Goodsmodel.find({goods_name:{$regex:keyword}},function(err,docs){
+  
+      res.send(docs);
+  
+
+  })
+});
+
+
+router.get('/dele', function(req, res, next) {
+  /*Goodsmodel.find({sign:1},function(err,docs){
+    res.send(docs);
+  })*/
+});
+
+
+
+router.post('/manage', function(req, res, next) {
   res.render('manage');
 });
+
+
+
 router.post('/api/add_goods', function(req, res) {
     var form = new multiparty.Form({
       uploadDir :"./public/images"
@@ -50,6 +77,7 @@ router.post('/api/add_goods', function(req, res) {
           console.log(goods_name,goods_id,goods_price,imgName)
 
           var gm = new Goodsmodel();
+          gm.sign =1;
           gm.goods_name= goods_name;
           gm.goods_id= goods_id;
           gm.goods_price= goods_price;
@@ -57,8 +85,11 @@ router.post('/api/add_goods', function(req, res) {
           gm.save(function(err){
               if( !err ){
                 res.send("文件上传成功");
+                res.render("mainright-new")
+
               }else{
                 res.send("文件上传失败")
+                res.render("mainright-new")
               }
           })
     });
