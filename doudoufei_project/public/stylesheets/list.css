@@ -136,6 +136,27 @@ h1>span:nth-child(2){
     display: inline-block;
     vertical-align: middle;
 }
+#page-table tbody{
+  display: block;
+  height: 23px;
+  padding: 10px; 
+}
+#page-table tbody tr{
+	float: right; 
+}
+#content {
+  height: 30px;
+  width: 100%; }
+  #content #selAction {
+    margin-top: 5px; }
+  #content #btnSubmit {
+    padding: 5px 15px 5px;
+    margin: 2px 2px;
+    border: none;
+    background: #ff3f3f;
+    color: #FFF;
+    cursor: pointer;
+    border-radius: 3px; }
 /* footer */
 #footer{
 	background: #f3f3f3;

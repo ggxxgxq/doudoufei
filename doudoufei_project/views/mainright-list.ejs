@@ -115,7 +115,48 @@
 					    </tr>		
 					    <% }%>  -->
 		</table>
+		<!--分页-->
+		<table id="page-table" cellspacing="0">
+			<tbody>
+				<tr>
+					<td align="right" nowrap="true">
+						<div id="turn-page">
+							总计 <span id="totalRecords"><!--<%= list.length %>--></span> 
+							个记录分为 <span id="totalPages">1</span> 
+							页当前第 <span id="pageCurrent">1</span> 
+							页，每页 <input type="text" size="3" id="pageSize" value="4"> 
+							<span id="page-link">
+			          	<a href="javascript:;" id="onepage" >第一页</a>
+				        <a href="javascript:;" id="minpage" >上一页</a>
+				        <a href="javascript:;" id="addpage" >下一页</a>
+				        <a href="javascript:;">最末页</a>
+					    <select id="gotoPage" onchange="listTable.gotoPage(this.value)">
+					    <option value="1">1</option>          
+					    </select>
+                             </span>
+						</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
+	<div id="content">
+				<select name="type" id="selAction">
+					<option value="">请选择...</option>
+					<option value="trash">回收站</option>
+					<option value="on_sale">上架</option>
+					<option value="not_on_sale">下架</option>
+					<option value="best">精品</option>
+					<option value="not_best">取消精品</option>
+					<option value="new">新品</option>
+					<option value="not_new">取消新品</option>
+					<option value="hot">热销</option>
+					<option value="not_hot">取消热销</option>
+					<option value="move_to">转移到分类</option>
+				</select>
+				<input type="submit" value=" 确定 " id="btnSubmit" name="btnSubmit">
+			</div>
+	<!--footer-->
 	<div id="footer">
 		<div class="copyright">
 			共执行 7 个查询，用时 0.023869 秒，Gzip 已禁用，内存占用 3.560 MB<br>
@@ -125,6 +166,11 @@
 </body>
 </html>
 <script type="text/javascript">
+  
+   
+
+
+//模糊查询
 	function searchGoods(){
 		$.ajax({
 				url:"/api/search_goods",
@@ -134,62 +180,70 @@
 	            },
 	            success:function(res){
 	                $(".shop_tab").append( tab(res))
+
 				    }
 	            
 			})
 	}
 
-
+//加载商品列表
 	fend();
 	function fend(){
         $.ajax({
         	url:"/aaa",
             type:"get",
+            data:{
+                pageNO : $("#pageCurrent").html(),
+			    perPageCnt : $("#pageSize").val()
+            },
 	        success:function(res){
-	        	$(".shop_tab").append( tab(res))
+	        	$(".shop_tab").append( tab(res.docs));
+	        	$("#totalRecords").text(res.count);
+	        	$("#totalPages").text(res.pages);
+	        	$("#pageCurrent").text(res.pageNum);
+	        	
+
+
 	        }
         })
 	}
-
+//拼接tr商品列表
 	function tab(res){
+    $(".shop_tab").children().children().eq(0).siblings().remove();
 		var str ="";
 	    for( var i=res.length-1;i>=0;i--){
-            str +='<tr><td><input type="checkbox" value="">' + res[i].goods_id +'</td><td><span class="good_name">' + res[i].goods_name + '</span></td><td><span>200</span></td><td><span>' + res[i].goods_price + '</span></td><td><img src="../images/no.gif"></td><td><img src="../images/yes.gif"></td><td><img src="../images/yes.gif"></td><td><img src="../images/yes.gif"></td><td><span>100</span></td><td><span>1</span></td><td><span>10</span></td><td><a href="#"><img src="../images/icon_view.gif"></a><a href="#"><img src="../images/icon_edit.gif"></a><a href="#"><img src="../images/icon_copy.gif"></a><a href="javascript:;" class="delete"><img src="../images/icon_trash.gif"  ></a></td></tr>'
+            str +='<tr><td><input type="checkbox" value="">' + res[i].goods_id +'</td><td><span class="good_name">' + res[i].goods_name + '</span></td><td><span>200</span></td><td><span>' + res[i].goods_price + '</span></td><td><img src="../images/no.gif"></td><td><img src="../images/yes.gif"></td><td><img src="../images/yes.gif"></td><td><img src="../images/yes.gif"></td><td><span>100</span></td><td><span>1</span></td><td><span>10</span></td><td><a href="#"><img src="../images/icon_view.gif"></a><a href="#"><img src="../images/icon_edit.gif"></a><a href="#"><img src="../images/icon_copy.gif"></a><a href="javascript:;" class="delete" onclick="del()"><img src="../images/icon_trash.gif"  ></a></td></tr>'
 
 	}
 		return str;
 }
 //假删除
-  $(".delete").click(function(){
-	  	alert("")
-	  	$.ajax({
+function del(){
+	var shop= $(".delete").parent().parent().children().eq(1).children().html();
+	console.log( shop)
+	$.ajax({
 	  		url:"/api/remove",
 	  		type:"post",
 	  		data:{
-	  		goods_name:	$(this).parent().parent().children().find(".goods_name").text()
+	  		goods_name:	shop
 	  		},
 	        success:function(res){
 	            console.log("删除成功")
 	        }
 	  	})
-	  
-  })
+	history.go(0);
+}
 
+
+var addpage = parseInt($("#pageCurrent").html())
+//上一页
+$("#minpage").click(function(){
+   $("#pageCurrent").html(addpage -= 1);
+   fend();
+ })
+$("#addpage").click(function(){
+	$("#pageCurrent").html(addpage += 1);
+	fend();
  
-	/*$(".delete").click(function(){
-		aleret();
-		$.ajax({
-			url : "/dele",
-			type: "post",
-			data : {
-			      goods_name : $(this).parent().parent().children().eq(1).children().html()
-			},
-			success: function(res){
-					//console.log(res);
-				alert(res)
-		    }
-		})
-		history.go(0);
-	})
-*/
+})
 </script>

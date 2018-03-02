@@ -33,25 +33,50 @@ router.get('/mainright-list', function(req, res, next) {
   })
 });
 router.get('/aaa', function(req, res, next) {
-  Goodsmodel.find({sign:1},function(err,docs){
-    res.send(docs);
-  })
+     var pageNum = req.query.pageNO || 1;
+     pageNum = parseInt(pageNum);
+     console.log(pageNum)
+     var pageCount = req.query.perPageCnt || 5;
+     pageCount = parseInt(pageCount);
+     Goodsmodel.count({sign:1},function(err,count){
+         var pages = Math.ceil(count/pageCount);
+         if(pageNum <=0){
+             pageNum = 1
+          }
+          if(pageNum > pages){
+             pageNum = pages
+          }
+         //skip过滤数据
+         var query = Goodsmodel.find({sign:1}).skip((pageNum-1)*pageCount).limit(pageCount);
+         query.exec(function(err,docs){
+             var results = {
+                 count:count,
+                 docs:docs,
+                 pages:pages,
+                 pageNum:pageNum
+             }
+            res.json(results)
+         })
+     })
 });
 router.post('/api/search_goods', function(req, res, next) {
   var keyword = req.body.keyword;
- Goodsmodel.find({goods_name:{$regex:keyword}},function(err,docs){
-  
-      res.send(docs);
+ Goodsmodel.find({goods_name:{$regex:keyword},sign:1},function(err,docs){
+         res.send(docs);
+
   
 
   })
 });
 
 
-router.get('/dele', function(req, res, next) {
-  /*Goodsmodel.find({sign:1},function(err,docs){
-    res.send(docs);
-  })*/
+router.post('/api/remove', function(req, res, next) {
+  var goods_name = req.body.goods_name;
+  Goodsmodel.update({goods_name:goods_name},{$set:{sign:0}},function(err,docs){
+   if(!err){
+    res.send("删除成功")
+   }
+  })
 });
 
 
@@ -84,12 +109,10 @@ router.post('/api/add_goods', function(req, res) {
           gm.img= imgName;
           gm.save(function(err){
               if( !err ){
-                res.send("文件上传成功");
                 res.render("mainright-new")
 
               }else{
                 res.send("文件上传失败")
-                res.render("mainright-new")
               }
           })
     });
